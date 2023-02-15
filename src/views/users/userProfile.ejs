@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <%- include('../partials/all_head.ejs')%>
+        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="/css/profile.css">
+        
+        <title>GamePlay - Perfil</title>
+    </head>
+    <body>
+        <header>
+            <%- include('../partials/all_header.ejs') %>
+        </header>
+        <main>
+            <div class="breadcrumb">
+                <nav class="breadcrumb bg-light mb-30">
+                    <a class="level-01" href="/">Inicio</a><span> > </span>
+                    <span class="active">Perfil</span>
+                </nav>
+            </div>
+            <div class="profile-container">
+                <div class="profile-container-title">
+                    <h2>Perfil</h2>
+                </div>
+                <div class="first-row">
+                    <div class="profile-avatar">
+                        <img src="<%=user.image_url%>" alt="avatar" class="avatar">
+                    </div>
+                    <div class="first-row-content">
+                        <div class="first-row-content">
+                            <h3>Nombre:</h3>
+                            <p><%=user.first_name%></p>
+                        </div>
+                        <div class="first-row-content">
+                            <h3>Apellido:</h3>
+                            <p><%=user.last_name%></p> 
+                        </div>
+                        <div class="first-row-content">
+                            <h3>Nombre de usuario:</h3>
+                            <p><%=user.user%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-row">
+                    <div class="profile-container-content">
+                        <h3>Email:</h3> 
+                        <p><%=user.email%></p>
+                    </div>
+                    <div class="profile-container-content">
+                        <h3>Fecha de nacimiento:</h3> 
+                        <p><%=user.birth_date%></p>
+                    </div>
+                    <div class="profile-container-content">
+                        <h3>Genero:</h3>
+                        <p><%=user.genders.name%></p>
+                    </div>
+                    <div class="profile-container-content">
+                        <h3>Intereses:</h3>
+                        <% for (let interest of user.interests) { %>
+                            <p><%= interest.name %> </p>    
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="edit-button">
+            <a href="/usuarios/<%=user.id%>/editar"><button type="button" name ="ingreso" class="ingresobutton">EDITAR</button></a>
+            </div>
+        </main>
+        <%- include ('../partials/all_footer.ejs') %>
+    </body>
+    
+    </html>

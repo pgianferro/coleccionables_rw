@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/all_head.ejs')%>
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <script src="/js/messages.js"></script>
+    <title>GamePlay - Detalle de producto</title>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/all_header.ejs') %>
+    </header>
+    <!-- Breadcrumb Start -->
+    <main class="product-detail">
+        <div class="breadcrumb">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="level-01" href="/">Inicio > </a>
+                <a class="level-02" href="/">Categoría > </a>
+                <a class="level-03" href="/">Subcategoría > </a>
+                <span class="active">Producto</span>
+            </nav>
+        </div>
+    <!-- Breadcrumb End -->
+
+
+        <!-- Shop Detail Start -->
+        <div class="product-detail">
+                <div class="product-detail-left" >
+                    <img class="main-pic" src="<%= product.image_url %>" alt="imagen de producto">
+                </div>
+                <div class="product-detail-right">
+                    <div>
+                    <% if (product.is_offer) { %>
+                        <span class="discount"><%= product.discount %>% off</span>
+                    <% } %>
+                    <h5 class="brand">Marca</h5>
+                    <h2 class="product-name"><%= product.product_name %> </h2>
+                    </div>
+                    <div>
+                        <p class="short-description"> <%= product.short_description %> </p>
+                    </div>
+                    <div class="prices">
+                        <div>
+                            <% if (product.is_offer){ %>
+                                <span class="regular-price">$<%= product.regular_price.toLocaleString('es-Ar') %></span>
+                            <% } %> 
+                            <span class="offer-price">$<%= (parseInt(product.regular_price * ( 1 - product.discount/100))).toLocaleString('es-Ar') %></span>
+                        </div> 
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <a href="javascript:alert('Restaste una unidad');"><button class="minus-button"> - </button></a>
+                        </div>
+                        <input type="text" class="form-control" value="1">
+                        <div class="input-group-btn">
+                            <a href="javascript:alert('Sumaste una unidad');"><button class="plus-button"> + </button></a>
+                        </div>
+                    </div>
+                    <form action="/productos/<%= product.id %>/agregar" method="POST">
+                        <div class="buttons">
+                            <div class="add-to-cart">
+                                <button type="submit" class="add-to-cart-button">AÑADIR AL CARRITO</button></a>
+                            </div>
+                            <div class="buy-now">
+                                <button class="buy-now-button">COMPRAR AHORA</button></a>
+                            </div>
+                        </div>
+                    </form> 
+                    <div>
+                        <p class="sku"> SKU: <%= product.sku %> </p>
+                    </div>
+                    <br>
+                    <div>
+                        <p class="tags"> TAGS: <%= product.tags %> </p>
+                    </div>
+                    <br>
+                    <div>
+                        <p class="categories"> CATEGORIAS: 
+                            <span><% for (let categorie of product.categories){ %>
+                                - <%= categorie.name %> -
+                            <% } %></span>
+                        </p>
+                    </div>
+                    <div class="buttons2">
+                        <div class="add-to-cart">
+                            <a href="/productos/<%= product.id %>/editar"><button class="add-to-cart-button">EDITAR</button></a>
+                        </div>
+                        <div class="buy-now">
+                            <form class="registro" action="/productos/<%= product.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="buy-now-button" id="delete-button">ELIMINAR</button>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
+                <!-- Cierre del product-detail-right     -->
+            </div>
+        </div>
+        <!-- Shop Detail End -->
+        <div>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <!-- Product´s large description Start -->
+        <div class="product-long-description">
+            <h2>Descripción del producto</h2>
+            <%= product.long_description %>
+        </div>
+        <!-- Product´s large description End -->
+        <div>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <!-- Footer Start -->
+    </main>
+    <%- include ('../partials/all_footer.ejs') %>
+</body>
+
+</html>
+
+    <!-- Footer End -->

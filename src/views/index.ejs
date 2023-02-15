@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/all_head') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <title>GamePlay - Home</title>
+</head>
+
+<body>
+    <header>
+    <%- include('./partials/all_header', {usuario}) %>
+    <%- include('./partials/all_header_slider') %>
+    </header>
+    <section class="main">
+
+        <% if (locals.isLogged === true) {%>
+            <h4 class="titulo">Lo que estuviste viendo...</h4><br>
+            <section class="productos">
+                <% for (let product of lastViewed){ %>
+                    <%- include ('./partials/product_example',{product}) %>
+                <% } %> 
+            </section>
+        <%}%> 
+        
+        <br><h4 class="titulo">Lo que la gente quiere</h4><br>
+        <section class="productos">
+            <% for (let product of bestSellers){ %>
+                <%- include ('./partials/product_example',{product}) %>
+            <% } %> 
+        </section>
+
+        <br><h4 class="titulo">Estas son las ofertas!</h4><br>
+        <section class="productos">
+            <% for (let product of onSale){ %>
+                <%- include ('./partials/product_example',{product}) %>
+            <% } %> 
+        </section>
+
+    </section>
+
+    <%- include ('./partials/all_footer') %>
+</body>
+
+</html>

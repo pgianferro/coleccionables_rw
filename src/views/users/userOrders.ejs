@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/all_head.ejs')%>
+    <link rel="stylesheet" href="/css/productCart.css">
+    <title>GamePlay - Ordenes</title>
+</head>
+
+<body>
+    <header>
+    <%- include('../partials/all_header.ejs') %>
+    </header>
+    <!-- Breadcrumb Start -->
+    <main class="cart">
+        <div class="breadcrumb">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="level-01" href="/">Inicio > </a>
+                <a class="level-02" href="/">Shop > </a>
+                <span class="active">Ordenes</span>
+            </nav>
+        </div>
+        <!-- Breadcrumb End -->
+            
+        <!-- Cart Details Start -->
+        <div class="product-details">
+
+            <!-- Cart Products Start -->
+            
+            <div class="cart-products">
+                <div class="cart-products-title">
+                    <h2>Ordenes de Compras</h2>
+                </div>
+                <div class="product-list-general">
+
+                    <% for (let order of orders) { %> 
+                        <div class="cart-products-item">
+                                <div class="product-name">
+                                    <h3 class="name">Orden numero: <%= order.id %> </h3>
+                                </div>
+                                <div>
+                                    <p class="regular-price">Usuario: <%= order.user_orders.user %>
+                                </div>
+                                <div>
+                                    <p class="regular-price">Estado: <%= order.status_orders.name %>
+                                    <br>Total : $<%= order.ammount %>  </p>
+                                </div>
+                                <div class="cart-erase-button">
+                                    <a href="javascript:alert('Tu producto será borrado del carrito, deseas continuar?');"><button class="erase-button">x</button></a>
+                                </div>
+                        </div>
+                    <% } %>
+
+
+                </div>    
+            </div>
+            <!-- Cart Products End -->
+
+        </div>
+        <!-- Cart Details End -->
+    </main>
+
+    <%- include ('../partials/all_footer.ejs') %>
+</body>
+
+</html>

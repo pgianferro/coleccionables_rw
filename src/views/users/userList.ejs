@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/all_head') %>
+    <link rel="stylesheet" href="/css/usersList.css">
+    <script src="/js/messages.js"></script>
+    <title>GamePlay - Listado usuarios</title>
+</head>
+
+<body>
+    <header>
+    <%- include('../partials/all_header') %>
+    <!-- <%- include('../partials/all_header_slider') %> -->
+    </header>
+    <section class="main">
+        <span>- 
+            <% for (let page = 1; page <= pageCount; page++) { %>
+                <a href="<%= url %>&page=<%= page %> "><%= page %></a> - 
+            <% } %> 
+            </span>    
+        <h4 class="titulo">Listado de Usuarios</h4>
+        <section class="usuarios">
+        <% if (users.length === 0) { %>
+            Ups... No hay nada por aquí - Create un usuario!
+        <% } else { %>
+            <% for (let user of users){ %>
+                <%- include('../partials/user_example', { user } ) %> 
+            <% } %> 
+        <% } %>
+        </section>
+    </section>
+
+    <%- include ('../partials/all_footer') %>
+</body>
+
+</html>

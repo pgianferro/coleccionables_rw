@@ -1,0 +1,25 @@
+<a href="/usuarios/<%= user.id %>"><article>
+    <img src="<%= user.image_url %>">
+    <div class="datos">
+        <div>
+            <h3><strong>Nombre y apellido: </strong></h3>
+            <p><%= user.first_name + ' ' + user.last_name%></p>
+        </div>
+        <div>
+            <p><strong>Usuario: </strong></p>
+            <p><%= user.user %></p>
+        </div>
+        <div>
+            <p><strong>Email: </strong></p>
+            <p><%= user.email %></p>
+        </div>
+        <div class="botones">
+            <form action="/usuarios/<%= user.id %>/editar" method="GET">
+                <button type="submit" class="ingresobutton">Editar</button>
+            </form>
+            <form action="/usuarios/<%= user.id %>?_method=DELETE" method="POST">
+                <button type="submit" id="delete-button" class="ingresobutton">Eliminar</button>
+            </form>
+        </div>
+    </div>
+</article></a>
