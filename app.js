@@ -32,7 +32,7 @@ app.use(cors({origin: '*'}));
 
 // Inicio Servidor
 app.listen(process.env.PORT || PUERTO, () => {
-    console.log(`Up & Running en http://127.0.0.1:${PUERTO}`);
+    console.log(`Up & Running en http://0.0.0.0:${PUERTO}`);
 });
 
 // View Engine
