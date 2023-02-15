@@ -30,10 +30,7 @@ app.use(authMiddleware);
 app.use(cors({origin: '*'}));
 
 
-// Inicio Servidor
-app.listen(PORT, () => {
-    console.log(`Up & Running en http://0.0.0.0:${PORT}`);
-});
+
 
 // View Engine
 app.set('view engine', 'ejs');
@@ -45,3 +42,8 @@ app.use('/', mainRouter);
 app.use('/productos', productRouter);
 app.use('/usuarios', userRouter);
 app.use('/api', apiRouter);
+
+// Inicio Servidor
+app.listen(PORT, () => {
+    console.log(`Up & Running en puerto ${PORT}`);
+});
