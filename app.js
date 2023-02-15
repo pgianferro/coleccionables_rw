@@ -1,4 +1,4 @@
-const PUERTO = 3001;
+const {PORT} = require('./config')
 
 //Modulos
 const express = require('express');
@@ -31,7 +31,7 @@ app.use(cors({origin: '*'}));
 
 
 // Inicio Servidor
-app.listen(process.env.PORT || PUERTO, () => {
+app.listen(PORT, () => {
     console.log(`Up & Running en http://0.0.0.0:${PUERTO}`);
 });
 
