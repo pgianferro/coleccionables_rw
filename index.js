@@ -44,6 +44,6 @@ app.use('/usuarios', userRouter);
 app.use('/api', apiRouter);
 
 // Inicio Servidor
-app.listen(PORT,'0.0.0.0', () => {
+app.listen(PORT, () => {
     console.log(`Up & Running en puerto ${PORT}`);
 });
