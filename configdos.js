@@ -6,5 +6,6 @@ module.exports = {
     DB_MYSQLUSER : process.env.DB_USER,
     DB_DATABASE : process.env.DB_DATABASE,
     DB_MYSQLPORT : process.env.DB_PORT,
+    BACKEND_ADDRESS : process.env.BACKEND_ADDRESS
     
     }

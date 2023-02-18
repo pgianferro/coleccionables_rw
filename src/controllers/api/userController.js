@@ -2,6 +2,8 @@ const queries = require('../../database/queries/index');
 const crypto = require("crypto-js");
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
+const {BACKEND_ADDRESS} = require('../../../configdos')
+
 
 
 const apiUserController = {
