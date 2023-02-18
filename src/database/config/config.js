@@ -1,8 +1,8 @@
-const {DB_DATABASE} = require('../../../config')
-const {DB_MYSQLHOST} = require('../../../config')
-const {DB_MYSQLPASSWORD} = require('../../../config')
-const {DB_MYSQLUSER} = require('../../../config')
-const {DB_MYSQLPORT} = require('../../../config')
+const {DB_DATABASE} = require('../../../configdos')
+const {DB_MYSQLHOST} = require('../../../configdos')
+const {DB_MYSQLPASSWORD} = require('../../../configdos')
+const {DB_MYSQLUSER} = require('../../../configdos')
+const {DB_MYSQLPORT} = require('../../../configdos')
 
 module.exports = {
   "development": {

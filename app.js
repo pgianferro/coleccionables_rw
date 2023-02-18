@@ -1,4 +1,4 @@
-const {PORT} = require('./config')
+const {PORT} = require('./configdos')
 
 //Modulos
 const express = require('express');
